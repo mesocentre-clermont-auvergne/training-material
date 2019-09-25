@@ -90,12 +90,14 @@ We have used the HiCExplorer successfully with bwa, bowtie2 and hisat2. In this 
 
 > ### {% icon hands_on %} Hands-on: Mapping reads
 >
-> 1. **Map with BWA-MEM** {% icon tool %}: Run BWA-MEM on both strands `HiC_S2_1p_10min_lowU_R1` and `HiC_S2_1p_10min_lowU_R2` with:
->    - "Is this single or paired library" to `Single fatsq`
+> 1. **Map with Bowtie** {% icon tool %}: Run Bowtie on both strands `HiC_S2_1p_10min_lowU_R1` and `HiC_S2_1p_10min_lowU_R2` with:
+>    - "Is this single or paired library" to `Single-end`
 >    - Set multiple data sets
->    - "FASTQ dataset" to `HiC_S2_1p_10min_lowU_R1`and `HiC_S2_1p_10min_lowU_R2`
+>    - "FASTQ file" to `HiC_S2_1p_10min_lowU_R1`and `HiC_S2_1p_10min_lowU_R2`
 >    - "Will you select a reference genome from your history or use a built-in index?" to `Use a built-in index`
 >    - "Select a reference genome" to `dm3`
+>    - "Do you want to tweak SAM/BAM Options?" to `Yes`
+>    - "Reorder output to reflect order of the input file" to `Yes`
 >
 > 2. Rename the output of the tool according to the corresponding files: `R1.bam` and `R2.bam`
 >
@@ -118,7 +120,7 @@ For this step we will use [hicBuildMatrix](http://hicexplorer.readthedocs.io/en/
 >
 >       > ### {% icon comment %} Comment
 >       >
->       > *hicBuildMatrix* creates three files, a bam file containing only the valid Hi-C read pairs,  a dataset with raw QC metrics and a matrix containing the Hi-C contacts at the given resolution. The bam file is useful to check the quality of the Hi-C library on the genome browser. A good Hi-C library should contain piles of reads near the restriction fragment sites. In the QC folder a html file is saved with plots containing useful information for the quality control of the Hi-C sample like the number of valid pairs, duplicated pairs, self-ligations etc. Usually, only 25%-40% of the reads are valid and used to build the Hi-C matrix mostly because of the reads that are on repetitive regions that need to be discarded.
+>       > *hicBuildMatrix* creates two files, a bam file containing only the valid Hi-C read pairs and a matrix containing the Hi-C contacts at the given resolution. The bam file is useful to check the quality of the Hi-C library on the genome browser. A good Hi-C library should contain piles of reads near the restriction fragment sites. In the QC folder a html file is saved with plots containing useful information for the quality control of the Hi-C sample like the number of valid pairs, duplicated pairs, self-ligations etc. Usually, only 25%-40% of the reads are valid and used to build the Hi-C matrix mostly because of the reads that are on repetitive regions that need to be discarded.
 >       {: .comment}
 >
 >       > ### {% icon comment %} Comment
